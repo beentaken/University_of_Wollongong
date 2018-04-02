@@ -1,5 +1,0 @@
-#!/bin/bash
-
-./out Australia_flights.txt Australia_cities.txt
-
-./out Australia_roads.txt Australia_cities.txt
