@@ -1,0 +1,18 @@
+Student's Name : Yixiang Fan
+Student's Number : 5083898
+Student's Email Address : yf874@uowmail.edu.au
+
+My codes contains 3 functions : CFAInterpolation, ColourCorrection, GammaCorrection.
+They are called in processCFAImage successively.
+
+CFAInterpolation adopts bilinear algorithm. It complements the cfaImage with extra frame. The top margin copies the 2nd row of cfaImage; the bottom margin copies the last 2nd row of cfaImage; the left margin copies the 2nd column of cfaImage; the right margin copies the last 2nd column of cfaImage. Besides, the top left corner, the top right corner, the bottom left corner and the bottom right corner copies cfaImage[1][1], cfaImage[1][width-2], cfaImage[height-2][1] and cfaImage[height-2][width-2], respectively.
+
+After creating this temporary matrix, apply bilinear algorithm to transfer cfaImage to rgbImage. These 2 pictures conform to Bayer format - RGGB. Considering it's stored upside down in the bmp file, its format is GBRG. Althouth Dr. Igor Kharitonenko said that it is GRBG, but I checked it 3 times. However, I have to believe my test results.
+
+At the end of this function, don't forget to free the temporary matrix.
+
+ColourCorrection will make the picture more vivid. It digitally compensates deviation of spectral sensitivities of CFA to bring them closer to CIE Colour Matching Functions. When implementing ColourCorrection, in addition to calculating the matrix, the most important is to the range control. The range of unsigned char is 0 ~ 255. If the value is over 255, then assign 255 to it. Likewise, if it is below 0, then assign 0 to it. Overflow may trigger numerous green spots.
+
+GammaCorrection makes pictures brighter and makes colour-changing more smooth. In other words, it eliminates aliasing. According to Webber’s low the noticeable contrast threshold is 2%. In dark area, a little change of colour will be much more noticeable than that in bright area. To deal with this problem, I adopt GammaCorrection function : S' = S^0.5. For instance, red = (red / 255)^0.5 * 255. I implement this equation in another program to get a mapping table and create this mapping table in the assignment code file. It is time-saving to run GammaCorrection function by using this mapping table. However, if you want to change the power of that equation, you have to change that mapping table. So it is not so universal. 
+
+All in all, after the 3 procedures, pictures become vivid, clear and bright. Fruits become yummy  ~\^ _ ^/~
