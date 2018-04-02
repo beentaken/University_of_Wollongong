@@ -1,3 +1,0 @@
-#!/bin/bash
- 
-g++ 803ass4.cpp -o out
