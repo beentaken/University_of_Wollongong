@@ -1,0 +1,17 @@
+1. Q. Can we use STL vector? STL list?
+
+    A. No, This subject traditionally explicitly disallows STL, and from this year, Java Collection, or any collection framework in any languages you might use. You are here in this subject to gain a deep understanding of data structures and algorithms, and their efficiency. Not to learn to use them readily built in a library. Later, when you do use a library, your experiences here should allow you to intuitively select the correct data structure and use it appropriately.
+
+2. Q. Does this mean I need to write my own auto-resizing containers to handle large inputs?
+
+    A. No. While auto resizing containers are good when you don't have a clear size (for example the queues in this assignment) and you are welcome to do it, dynamic resizing is not the focus of this subject. As such, you won't lose marks provided you allocate arrays of reasonable size initially.
+
+The size of the most data structures in this assignment can be determined upon reading the first line of the input file. For the queues, your experiments with the sample input should give you average and maximum queue sizes that can guide your choice for statically sized queues assuming the test data is similarly distributed to the example data. Put the static allocation as a named and appropriately commented constant, and it can be easily changed if a larger value is required.
+
+
+3. Q. Does the term "shortest queue" mean the queue with the smallest size or the queue with the shortest service/waiting time? If it is the smallest size, what if two queues that have the same size but different service/waiting time?
+
+
+  A. Smallest size. Assume it is a situation like a bank or uni admin, where we can't see a basket of goods to estimate wait time. If they have the same size, the choice is arbitrary. It could be random, or the server with the smallest index (which is faster and might actually be more realistic because people will tend to join the queue closer to the location of their entry point).
+
+Last modified: Thursday, 25 August 2016, 1:38 PM
