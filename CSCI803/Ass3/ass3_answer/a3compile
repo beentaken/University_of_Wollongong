@@ -1,0 +1,4 @@
+#!/bin/bash
+ 
+g++ generateAdjM.cpp -o generateAdjM
+g++ 803ass3.cpp -o out
